@@ -1,0 +1,37 @@
+<%- include('header') -%>
+
+<div class="text-center center-div mt-5" id="login">
+    <div class="container w-25 border py-5 mt-5">
+        <h3>Booked Slots</h3>
+        
+        <table>
+            <tr>
+              <th>Student Name</th>
+              <th>date and Time-Slot</th>
+              <th>rejection</th>
+              <th>accept</th>
+            </tr>
+            <tr>
+              <td>student1</td>
+              <td><p><%= locals.slots.length ? slots[0]?.days +slots[0]?.slots: "Not selected any slot" %></p></td>
+    
+              <td><button>reject</button></td>
+              <td><button onclick="booking()">accept</button></td>
+  
+            </tr>
+            <tr>
+              <td>student2</td>
+              <td><p><%= locals.slots.length ? slots[0]?.days +slots[0]?.slots : "Not selected any slot" %></p></td>
+    
+              <td><button>reject</button></td>
+              <td><button>accept</button></td>
+            </tr>
+          </table>
+        <br/>
+        <button class="btn btn-primary">Submit</button>
+
+        <br/><a href="/route/logout">Logout</a>
+    </div>
+</div>
+
+<%- include('footer') -%>

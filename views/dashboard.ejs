@@ -1,0 +1,41 @@
+<%- include('header') -%>
+
+<div class="text-center center-div mt-5" id="login">
+    <div class="container w-25 border py-5 mt-5">
+        <h3>Booking Slots</h3>
+        <h5><%= locals.user ? user : "User" %></h5>
+        <h2 id="bookingstatus"></h2>
+        <form action="/route/slot-request" method="POST" class="pt-3">
+        <label for="days">Choose a day:</label>
+        <select id="days" name="days">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="sunday">Sunday</option>
+        </select>
+        <br/>
+        <label for="slots">Choose a Slot:</label>
+        <select id="slots" name="slots">
+        
+            <option value="1pm - 2pm">1pm - 2pm</option>
+            <option value="4pm - 5pm">4pm - 5pm</option>
+            <option value="6pm - 7pm">6pm - 7pm</option>
+        </select>
+        <br/>
+        <select id="stdid" name="stdid">
+        
+            <option value="01">01</option>
+            <option value="02">02</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+        <br/><a href="/route/logout">Logout</a>
+    </div>
+</div>
+<script type="text/javascript" src="router.js"></script>
+<%- include('footer') -%>
