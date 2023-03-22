@@ -8,24 +8,40 @@
             <tr>
               <th>Student Name</th>
               <th>date and Time-Slot</th>
+              <th>status</th>
               <th>rejection</th>
               <th>accept</th>
+            </tr> 
+            <% for(var j=0;j<2;j++){ %>
+              <tr>
+                
+                <td>student<%= locals.slots.length ? slots[j]?.stdid :"no student" %></td>
+                <td><p><%= locals.slots.length ? slots[j]?.days +slots[j]?.slots: "Not selected any slot" %></p></td>
+                <td><p id="acceptedStatus"></p></td>
+                <td><button onclick="rejected()"  id="rejectingbtn">reject</button></td>
+                <td><button onclick="displaying()" id="acceptingbtn">accept</button></td>
+
+                <script type="text/javascript">
+                    ele=document.getElementById("acceptedStatus");
+                    rejectingbtn=document.getElementById("rejectingbtn");
+                    acceptingbtn=document.getElementById("acceptingbtn");
+                    function displaying(){
+                
+                        ele.textContent="accepted"
+                        
+                    }
+
+                    function rejected(){
+                      ele.textContent="Rejected"
+                    }
+
+                </script>
+
+                
             </tr>
-            <tr>
-              <td>student1</td>
-              <td><p><%= locals.slots.length ? slots[0]?.days +slots[0]?.slots: "Not selected any slot" %></p></td>
-    
-              <td><button>reject</button></td>
-              <td><button onclick="booking()">accept</button></td>
-  
-            </tr>
-            <tr>
-              <td>student2</td>
-              <td><p><%= locals.slots.length ? slots[0]?.days +slots[0]?.slots : "Not selected any slot" %></p></td>
-    
-              <td><button>reject</button></td>
-              <td><button>accept</button></td>
-            </tr>
+          <% } %>
+
+            
           </table>
         <br/>
         <button class="btn btn-primary">Submit</button>
