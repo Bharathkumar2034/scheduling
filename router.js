@@ -4,11 +4,13 @@ var router = express.Router();
 const  credential = [
     {
     email : "student1@gmail.com",
-    password : "student1"
+    password : "student1",
+    name:"student1"
     },
     {
         email : "student2@gmail.com",
-        password : "student2"
+        password : "student2",
+        name:"student2"
         }
 ]
 
@@ -51,6 +53,7 @@ router.get('/dashboard', (req, res) => {
     }
 })
 
+
 // route for alumni
 router.get('/alumni', (req, res) => {
     if(req.session.user){
@@ -91,10 +94,12 @@ router.post('/slot-request', (req, res)=>{
         }
         requestedSlot.push({days,slots,stdid});
         console.log("1",requestedSlot);
-        res.send("slot requested succesfully");
+        res.send("slot requested succesfully -- Wait for alumni approval");
     
     
 });
+
+
 
 
 module.exports = router;
