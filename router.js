@@ -77,7 +77,7 @@ router.get('/logout', (req ,res)=>{
     })
 })
 
-//
+//slot-request from the student
 
 
 router.post('/slot-request', (req, res)=>{
